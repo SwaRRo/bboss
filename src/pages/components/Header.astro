@@ -1,12 +1,13 @@
 ---
 // src/components/Header.astro
-import logoSrc from '/logo.png'; // Now pointing to your new logo!
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/logo.png'; // <-- Correct
 ---
 
 <header class="site-header">
   <div class="container">
     <a href="/" class="logo-link">
-      <img src={logoSrc.src} alt="BOSS Logo" class="logo-img" />
+      <Image src={logoSrc} alt="BOSS Logo" class="logo-img" />
     </a>
   </div>
 </header>
