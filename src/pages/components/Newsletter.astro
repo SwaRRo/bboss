@@ -1,0 +1,99 @@
+---
+// src/components/Newsletter.astro
+import Parser from 'rss-parser';
+const parser = new Parser();
+
+let posts: any[] = [];
+// This is the public RSS feed for your Substack publication.
+const SUBSTACK_URL = 'https://bossystem.substack.com/feed';
+
+try {
+    // Fetch and parse the feed during the build.
+    const feed = await parser.parseURL(SUBSTACK_URL);
+    // We'll just take the 3 most recent posts. Change slice(0, 3) to show more or less.
+    posts = feed.items.slice(0, 2); 
+} catch (error) {
+    // If the feed fails, we log the error and show nothing, preventing the site from crashing.
+    console.error("Failed to fetch Substack feed:", error);
+}
+---
+
+<section class="newsletter">
+  <div class="container">
+    <h2>From the Newsletter</h2>
+    <div class="card-grid">
+      {posts.length > 0 ? (
+        posts.map(post => (
+          <a href={post.link} target="_blank" rel="noopener noreferrer" class="card">
+            <div class="card-content">
+              <h3>{post.title}</h3>
+              <p>{post.contentSnippet?.substring(0, 120)}...</p>
+              <span class="read-more">Read More &rarr;</span>
+            </div>
+          </a>
+        ))
+      ) : (
+        <p>Could not load articles at this time. Please check back later.</p>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    padding: 4rem 1rem;
+    background-color: #fff; /* White background for this section */
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .card p {
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
+    margin-bottom: 1rem;
+  }
+  .read-more {
+    font-weight: bold;
+    color: #007bff;
+    margin-top: auto; /* Aligns to the bottom */
+  }
+</style>
