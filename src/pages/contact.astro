@@ -25,7 +25,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     </form>
     <div class="linkedin-connect">
       <hr />
-      <h2> You can also find me</h2>
+      <h2> You can also find me on</h2>
 
       <a href="https://www.linkedin.com/in/forzaswarro/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
        LinkedIn
@@ -50,10 +50,14 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     font-size: 3rem;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 1rem;
+    color: #8030cc;
+  }
+  h2 {
+    color: #ededed;
   }
   .contact-page > p {
     font-size: 1.1rem;
-    color: #555;
+    color: #ededed;
     margin-bottom: 3rem;
   }
   .contact-form {
@@ -61,6 +65,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     flex-direction: column;
     gap: 1.5rem;
     text-align: left;
+    color: #ededed;
   }
   .form-group {
     display: flex;
@@ -69,6 +74,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
   label {
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: #ededed;
   }
   input, textarea {
     padding: 0.75rem;
@@ -79,11 +85,11 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
   }
   input:focus, textarea:focus {
     outline: none;
-    border-color: #ff3300;
+    border-color: #8030cc;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   }
   .submit-button {
-    background-color: #ff3300;
+    background-color: #8030cc;
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -95,7 +101,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     margin-top: 1rem;
   }
   .submit-button:hover {
-    background-color: #ff5300;
+    background-color: #7a4bb0;
   }
   .linkedin-connect {
     margin-top: 4rem;
@@ -112,7 +118,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
   }
 
   .linkedin-button {
-    background-color: #ff3300; /* Matching your red-orange CTA color */
+    background-color: #8030cc; /* Matching your red-orange CTA color */
     color: white;
     padding: 0.8rem 2rem;
     border-radius: 8px;
@@ -124,7 +130,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
   }
 
   .linkedin-button:hover {
-    background-color: #ff5300; /* A darker shade for hover */
+    background-color: #7a4bb0; /* A darker shade for hover */
   }
 </style>
 </style>

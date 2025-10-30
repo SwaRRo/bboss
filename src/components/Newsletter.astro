@@ -35,7 +35,7 @@ try {
                 })}
               </p>
               <p>{post.contentSnippet?.substring(0, 120)}...</p>
-              <span class="read-more">Read More &rarr;</span>
+              <span class="read-more">Click to read more &rarr;</span>
             </div>
           </a>
         ))
@@ -49,7 +49,6 @@ try {
 <style>
   .newsletter {
     padding: 4rem 1rem;
-    background-color: #fff; /* White background for this section */
   }
   .container {
     max-width: 1200px;
@@ -59,7 +58,7 @@ try {
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #222;
+    color: #8030cc;
   }
   .card-grid {
     display: grid;
@@ -68,7 +67,7 @@ try {
     text-align: left;
   }
   .card {
-    background-color: #f9f9f9;
+    background-color: #333;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     overflow: hidden;
@@ -91,17 +90,17 @@ try {
   .card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
-    color: #000;
+    color: #fff;
   }
   .card p {
-    color: #222;
+    color: #cecece;
     line-height: 1.6;
     flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
     margin-bottom: 1rem;
   }
   .read-more {
     font-weight: bold;
-    color: #ff3300;
+    color: #8030cc;
     margin-top: auto; /* Aligns to the bottom */
   }
 </style>

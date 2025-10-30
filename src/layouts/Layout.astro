@@ -29,11 +29,17 @@ const { title } = Astro.props;
         font-family: system-ui, sans-serif;
         line-height: 1.5;
       }
-      body {
+body {
         margin: 0;
-        background-color: #ebebeb;
-        color: #222;
-        padding-top: 80px;
+        padding-top: 80px; /* Keep this for the fixed header */
+        
+        /* --- NEW BACKGROUND STYLES --- */
+        background-color: #1a1a1a;
+        color: #f0f0f0; /* Change default text to light grey */
+
+        /* This creates the dot grid with CSS gradients */
+        background-image: radial-gradient(circle, #555555 1px, transparent 1px);
+        background-size: 20px 20px; /* The spacing of the dots */
       }
       h1, h2, h3, p { margin: 0; }
       html { scroll-behavior: smooth; }
