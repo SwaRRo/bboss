@@ -1,0 +1,27 @@
+---
+// src/components/PageFoot.astro
+const currentYear = new Date().getFullYear();
+---
+<footer class="page-footer">
+  <div class="container">
+    <p>&copy; {currentYear} BOSS. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .page-footer {
+    background-color: #ff3300; /* A very light grey */
+    border-top: 1px solid #000;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+</style>

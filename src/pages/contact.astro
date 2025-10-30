@@ -4,8 +4,8 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
 ---
 <Layout title="Contact Us - BOSS">
   <div class="contact-page">
-    <h1>Get In Touch</h1>
-    <p>We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+    <h1>Reach Out!</h1>
+    <p>We'd love to hear from you. Do reach out to us for any queries, help and problem solving.</p>
     
     <!-- This form will live on YOUR Vercel site. It just SENDS data to Formspree. -->
     <form action="https://formspree.io/f/mnnozbvg" method="POST" class="contact-form">
@@ -23,6 +23,19 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
       </div>
       <button type="submit" class="submit-button">Send Message</button>
     </form>
+    <div class="linkedin-connect">
+      <hr />
+      <h2> You can also find me</h2>
+
+      <a href="https://www.linkedin.com/in/forzaswarro/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
+       LinkedIn
+      </a>
+    </div>
+
+  </div>
+</Layout>
+
+</style>
   </div>
 </Layout>
 
@@ -70,7 +83,7 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   }
   .submit-button {
-    background-color: #276fbd;
+    background-color: #ff3300;
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -82,6 +95,36 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
     margin-top: 1rem;
   }
   .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #ff5300;
   }
+  .linkedin-connect {
+    margin-top: 4rem;
+  }
+
+  .linkedin-connect hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 3rem;
+  }
+
+  .linkedin-connect p {
+    margin-bottom: 2rem;
+  }
+
+  .linkedin-button {
+    background-color: #ff3300; /* Matching your red-orange CTA color */
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  .linkedin-button:hover {
+    background-color: #ff5300; /* A darker shade for hover */
+  }
+</style>
 </style>

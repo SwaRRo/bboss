@@ -1,6 +1,8 @@
 ---
 // src/layouts/Layout.astro
 import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro'; // This is your CTA footer for the homepage
+import PageFoot from '@/components/PageFoot.astro'; // <-- 1. IMPORT THE NEW FOOTER
 import iconPng from '@/assets/icon.png';
 
 // The 'title' prop allows each page to have a custom browser tab title.
@@ -29,7 +31,7 @@ const { title } = Astro.props;
       }
       body {
         margin: 0;
-        background-color: #fff;
+        background-color: #cecece;
         color: #222;
         padding-top: 80px;
       }
@@ -43,5 +45,6 @@ const { title } = Astro.props;
       <!-- The <slot /> is a placeholder where your page content will be injected. -->
       <slot />
     </main>
+    <PageFoot /> <!-- <-- 2. USE THE NEW FOOT  COMPONENT -->
   </body>
 </html>
