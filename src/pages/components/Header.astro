@@ -1,39 +1,40 @@
 ---
 // src/components/Header.astro
 import { Image } from 'astro:assets';
-import logoSrc from '@/assets/logo.png'; // Using the simple path alias
+import logoSrc from '../assets/logo.png'; // <-- Correct
 ---
 
 <header class="site-header">
   <div class="container">
     <a href="/" class="logo-link">
-      <Image 
-        src={logoSrc} 
-        alt="BOSS Logo" 
-        class="logo-img"
-        height="50"
-      />
+      <Image src={logoSrc} alt="BOSS Logo" class="logo-img" />
     </a>
   </div>
 </header>
 
 <style>
   .site-header {
-    position: fixed;
+    position: fixed; /* Fixes the header to the viewport */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 100; /* Ensures it stays on top of all other content */
+    
     background-color: #ffffff;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 80px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+
+    /* Let's define a clear height for the header */
+    height: 100px; 
+    
+    /* Use flexbox to perfectly center the logo vertically */
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .logo-img {
-    height: 50px;
+    height: 80px; /* Adjust this value if your logo looks too big or small */
     width: auto;
   }
 </style>
