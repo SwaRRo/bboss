@@ -1,0 +1,58 @@
+---
+// src/components/Hero.astro
+---
+<section class="hero">
+  <div class="container">
+    <h1 class="title">Become the BOSS of Your System</h1>
+    <p class="subtitle">
+      We provide insights, strategies, and systems to help you build, operate, 
+      and scale successfully. Master your craft, business, and life.
+    </p>
+    <a href="#contact" class="cta-button">Get In Touch</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 6rem 1rem;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .subtitle {
+    font-size: 1.25rem;
+    color: #b3b3b3;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
