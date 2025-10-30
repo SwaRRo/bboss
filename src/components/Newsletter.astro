@@ -27,6 +27,13 @@ try {
           <a href={post.link} target="_blank" rel="noopener noreferrer" class="card">
             <div class="card-content">
               <h3>{post.title}</h3>
+              <p class="card-date">
+                {new Date(post.isoDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+                })}
+              </p>
               <p>{post.contentSnippet?.substring(0, 120)}...</p>
               <span class="read-more">Read More &rarr;</span>
             </div>
@@ -93,7 +100,7 @@ try {
   }
   .read-more {
     font-weight: bold;
-    color: #007bff;
+    color: #ff3300;
     margin-top: auto; /* Aligns to the bottom */
   }
 </style>
