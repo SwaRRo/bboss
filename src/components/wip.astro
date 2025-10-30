@@ -1,0 +1,43 @@
+---
+// src/components/WIP.astro
+import { Image } from 'astro:assets';
+import wipGif from '@/assets/wip.gif'; // We import the GIF from our assets folder
+---
+<section class="wip-section">
+  <div class="container">
+    <h2>Keep an eye out for this space!</h2>
+    <div class="wip-box">
+      <Image src={wipGif} alt="Work in Progress" class="wip-gif" width="480" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .wip-section {
+    padding: 4rem 1rem;
+    background-color: #fff; /* A cool, light blue-grey background */
+    text-align: center;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .wip-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: inline-block; /* Makes the box fit the content */
+  }
+  .wip-gif {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounds the corners of the GIF itself */
+  }
+</style>
