@@ -1,71 +1,124 @@
 ---
 // src/pages/contact.astro
-import Layout from '@/layouts/Layout.astro'; // We will create this layout in the next step
+import Layout from '@/layouts/Layout.astro';
 ---
 <Layout title="Contact Us - BOSS">
   <div class="contact-page">
     <h1>Reach Out!</h1>
-    <p>We'd love to hear from you. Do reach out to us for any queries, help and problem solving.</p>
+    <p>We'd love to help you. Text us below for query. We will reach you within 48 hours!</p>
     
-    <!-- This form will live on YOUR Vercel site. It just SENDS data to Formspree. -->
-    <form action="https://formspree.io/f/mnnozbvg" method="POST" class="contact-form">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-      <button type="submit" class="submit-button">Send Message</button>
-    </form>
-    <div class="linkedin-connect">
-      <hr />
-      <h2> You can also find me on</h2>
+    <!-- This is our new grid container for the two columns -->
+    <div class="contact-grid">
 
-      <a href="https://www.linkedin.com/in/forzaswarro/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
-       LinkedIn
-      </a>
+      <!-- ===== LEFT COLUMN: DETAILS ===== -->
+      <div class="contact-details">
+        <h2>About me</h2>
+        <h3>
+          I'm a Systems Engineer by training & an Artist by passion.
+        </h3>
+        <p>
+        </p>
+        <p>
+          <em>
+          The Engineer in me sees a business structre with an elegant system of <strong>Man, Machine, Method, & Measurement</strong>.
+          The Artist in me wants to give back the world it's natural rhythm & beauty by giving you <strong>time to focus on things that matter</strong>.
+          </em>
+        </p>
+ <!-- Single CTA button -->
+        <a href="https://www.linkedin.com/in/forzaswarro/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- ===== RIGHT COLUMN: FORM ===== -->
+      <div class="contact-form-wrapper">
+        <form action="https://formspree.io/f/mnnozbvg" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+
     </div>
-
-  </div>
-</Layout>
-
-</style>
   </div>
 </Layout>
 
 <style>
   .contact-page {
-    max-width: 700px;
-    margin: 4rem auto;
-    padding: 2rem;
+    max-width: var(--container-width-wide); /* Use the wider container for a 2-column layout */
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-l-xl);
     text-align: center;
   }
   h1 {
-    font-size: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 1rem;
-    color: #8030cc;
-  }
-  h2 {
-    color: #d0d0d0;
+    font-size: var(--font-size-h1);
+    font-family: var(--font-family-heading);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-accent);
   }
   .contact-page > p {
-    font-size: 1.1rem;
-    color: #d0d0d0;
-    margin-bottom: 3rem;
+    font-size: var(--font-size-large);
+    color: var(--color-text-dim);
+    margin-bottom: var(--spacing-xl-plus);
+    max-width: var(--container-width-narrow); /* Keep the intro text from getting too wide */
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  /* ======================================= */
+  /* ===== NEW DUAL COLUMN LAYOUT STYLES ===== */
+  /* ======================================= */
+  .contact-grid {
+    display: flex;
+    gap: var(--spacing-xl); /* Creates space between the columns */
+    text-align: left;
+  }
+  .contact-details, .contact-form-wrapper {
+    flex: 1;
+    flex-direction: column;  /* This makes both columns take up equal space */
+  }
+
+  /* Left Column Styling */
+  .contact-details h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+  .contact-details p {
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-l-xl)
+    flex-grow: 1;
+  }
+  .info-item {
+    margin-bottom: var(--spacing-md);
+  }
+  .info-item strong {
+    display: block;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+  }
+  .info-item a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* Right Column (Form) Styling */
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
-    color: #d0d0d0;
+    gap: var(--spacing-lg);
   }
   .form-group {
     display: flex;
@@ -73,64 +126,191 @@ import Layout from '@/layouts/Layout.astro'; // We will create this layout in th
   }
   label {
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #d0d0d0;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-dim);
   }
   input, textarea {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-form-input-border);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-base);
     font-family: inherit;
+    background-color: var(--color-form-input-bg);
+    color: var(--color-text-light);
   }
   input:focus, textarea:focus {
     outline: none;
-    border-color: #8030cc;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-focus-ring);
   }
   .submit-button {
-    background-color: #8030cc;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
     border: none;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
+    transition: var(--transition-default);
+    margin-top: var(--spacing-md);
   }
-  .submit-button:hover {
-    background-color: #7a4bb0;
+  You are absolutely right. My apologies. I completely misunderstood and over-complicated the previous step. Your request is much cleaner and more direct.
+
+You want to:
+
+    Remove the "Email" and "LinkedIn" text links that I added.
+
+    Add a single, clear "LinkedIn" CTA button to the bottom of the left column.
+
+Let's do exactly that. This is a much better design choice.
+Your Corrected and Refactored contact.astro Page
+
+Here is the complete, updated code for your contact.astro page. This version implements your specific request, cleaning up the HTML and adjusting the CSS to match.
+
+    Open src/pages/contact.astro.
+
+    Replace its entire content with this new code:
+
+code Astro
+
+    
+---
+// src/pages/contact.astro
+import Layout from '@/layouts/Layout.astro';
+---
+<Layout title="Contact Us - BOSS">
+  <div class="contact-page">
+    <h1>Reach Out!</h1>
+    <p>We'd love to help you. Text us below for query. We will reach you within 48 hours!</p>
+    
+    <div class="contact-grid">
+
+      <!-- ===== UPDATED LEFT COLUMN ===== -->
+      <div class="contact-details">
+        <h2>About me</h2>
+        <h3>
+          I'm a Systems Engineer by training & an Artist by passion.
+        </h3>
+        <p>
+          <em>
+          The Engineer in me sees a business structre with an elegant system of <strong>Man, Machine, Method, & Measurement</strong>.
+          The Artist in me wants to give back the world it's natural rhythm & beauty by giving you <strong>time to focus on things that matter</strong>.
+          </em>
+        </p>
+        
+        /* The new, single CTA button */
+        <a href="https://www.linkedin.com/in/forzaswarro/" target="_blank" rel="noopener noreferrer" class="linkedin-button">
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- ===== RIGHT COLUMN (UNCHANGED) ===== -->
+      <div class="contact-form-wrapper">
+        <form action="https://formspree.io/f/mnnozbvg" method="POST" class="contact-form">
+          <!-- ... your form inputs are unchanged ... -->
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* --- Page and Intro styles are unchanged --- */
+  .contact-page {
+    max-width: var(--container-width-wide);
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-l-xl);
+    text-align: center;
   }
-  .linkedin-connect {
-    margin-top: 4rem;
+  h1 { /* ... */ }
+  .contact-page > p { /* ... */ }
+
+  /* --- Grid styles are unchanged --- */
+  .contact-grid {
+    display: flex;
+    gap: var(--spacing-xl);
+    text-align: left;
+  }
+  .contact-details, .contact-form-wrapper {
+    flex: 1;
   }
 
-  .linkedin-connect hr {
+  /* ======================================= */
+  /* ===== UPDATED LEFT COLUMN STYLING ===== */
+  /* ======================================= */
+  .contact-details {
+    display: flex;
+    flex-direction: column; /* This is key to stacking the text and button */
+  }
+  .contact-details h2 {
+    margin-bottom: var(--spacing-lg);
+  }
+  .contact-details h3 {
+    font-size: var(--font-size-large);
+    color: var(--color-text-light);
+    font-family: var(--font-family-heading);
+    margin-bottom: var(--spacing-lg);
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  .contact-details p {
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    /*flex-grow: 1;*/ /* This pushes the button to the bottom */
+  }
+  
+  /* --- Right Column (Form) Styling is unchanged --- */
+  .contact-form { /* ... */ }
+  .form-group { /* ... */ }
+  label { /* ... */ }
+  input, textarea { /* ... */ }
+  input:focus, textarea:focus { /* ... */ }
+
+  /* ================================================== */
+  /* ===== REUSABLE & SPECIFIC BUTTON STYLES ===== */
+  /* ================================================== */
+  .submit-button, .linkedin-button {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
     border: none;
-    border-top: 1px solid #e0e0e0;
-    margin-bottom: 3rem;
-  }
-
-  .linkedin-connect p {
-    margin-bottom: 2rem;
-  }
-
-  .linkedin-button {
-    background-color: #8030cc; /* Matching your red-orange CTA color */
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    display: inline-block;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: var(--transition-default);
+    text-decoration: none;
+    text-align: center;
   }
-
-  .linkedin-button:hover {
-    background-color: #7a4bb0; /* A darker shade for hover */
+  .submit-button {
+    margin-top: var(--spacing-md);
   }
-</style>
+  .linkedin-button {
+    margin-top: var(--spacing-md);
+  }
+  .submit-button:hover, .linkedin-button:hover {
+    background-color: var(--color-accent-hover);
+  }
+  
+  /* Responsive behavior for mobile screens */
+  @media (max-width: 768px) {
+    .contact-grid {
+      flex-direction: column; /* Stack the columns vertically on smaller screens */
+    }
+  }
 </style>

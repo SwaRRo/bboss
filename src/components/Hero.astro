@@ -6,39 +6,42 @@
     <h1 class="title">Business Optimization & Scaling System</h1>
     <p class="subtitle">
       We provide tools & techniques for you to become the BOSS.
+    </p>
   </div>
 </section>
 
 <style>
   .hero {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-light);
     text-align: center;
-    padding: 6rem 1rem;
-    box-shadow: inset 0 0 15px 5px rgba(0, 0, 0, 0.4)
+    padding: var(--spacing-xxl) var(--spacing-md);
+    box-shadow: var(--shadow-inner);
   }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+
+  /*
+   * We can now DELETE the .container rule from this file!
+   * It gets its styling from our global utility class in Layout.astro.
+   */
+
   .title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
+    font-size: var(--font-size-h1);
+    font-weight: 800; /* font-weight is usually kept specific to the component */
+    margin-bottom: var(--spacing-md);
     line-height: 1.2;
   }
   .subtitle {
-    font-size: 1.25rem;
-    color: #d0d0d0;
-    margin-bottom: 2.5rem;
-    max-width: 600px;
+    font-size: var(--font-size-large);
+    color: var(--color-text-dim);
+    margin-bottom: var(--spacing-lg); /* Using a standard spacing unit */
+    max-width: var(--container-width-extra-narrow);
     margin-left: auto;
     margin-right: auto;
   }
 
   @media (max-width: 600px) {
     .title {
-      font-size: 2.5rem;
+      font-size: var(--font-size-h2); /* Re-using an existing variable */
     }
   }
 </style>

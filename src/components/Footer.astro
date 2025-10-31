@@ -11,30 +11,31 @@
 
 <style>
     .contact {
-        padding: 4rem 1rem;
+        padding: var(--spacing-xl) var(--spacing-md);
         text-align: center;
-        /*background-color: #1a1a1a;*/
     }
     .container {
-        max-width: 800px;
+        max-width: var(--container-width-narrow);
         margin: 0 auto;
     }
     h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #d0d0d0;
+        /* 
+         * NOTE: The font-size and color are now inherited
+         * from the global h2 style in Layout.astro.
+         * We only need to set the margin here.
+         */
+        margin-bottom: var(--spacing-md);
     }
-
-          .cta-button {
-    background-color: #8030cc;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  .cta-button:hover {
-    background-color: #7a4bb0;
-  }
+    .cta-button {
+        background-color: var(--color-accent);
+        color: var(--color-text-light);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        border-radius: var(--border-radius-md);
+        text-decoration: none;
+        font-weight: bold;
+        transition: var(--transition-default);
+    }
+    .cta-button:hover {
+        background-color: var(--color-accent-hover);
+    }
 </style>

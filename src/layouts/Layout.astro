@@ -1,7 +1,6 @@
 ---
 // src/layouts/Layout.astro
 import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro'; // This is your CTA footer for the homepage
 import PageFoot from '@/components/PageFoot.astro'; // <-- 1. IMPORT THE NEW FOOTER
 import iconPng from '@/assets/icon.png';
 
@@ -24,32 +23,110 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
-    <style is:global>
-      :root {
-        font-family: system-ui, sans-serif;
-        line-height: 1.5;
-      }
-body {
-        margin: 0;
-        padding-top: 80px; /* Keep this for the fixed header */
-        
-        /* --- NEW BACKGROUND STYLES --- */
-        background-color: #1a1a1a;
-        color: #f0f0f0; /* Change default text to light grey */
+<style is:global>
+  /* ====================================================== */
+  /* =|== 1. YOUR CENTRAL THEME & DESIGN SYSTEM ===|=> */
+  /* ====================================================== */
+  :root {
+    /* COLORS */
+    --color-background: #1a1a1a;
+    --color-dot-grid: #555555;
+    --color-surface-dark: #333333;
+    --color-text-light: #f0f0f0;
+    --color-text-dim: #d0d0d0;
+    --color-accent: #8030cc;
+    --color-accent-hover: #7a4bb0;
+    --color-link: #007bff;
+    --color-border: #555555;
+    --color-form-input-bg: #3d3d3d;
+    --color-form-input-border: #555;
 
-        /* This creates the dot grid with CSS gradients */
-        background-image: radial-gradient(circle, #555555 1px, transparent 1px);
-        background-size: 20px 20px; /* The spacing of the dots */
-      }
-      h1, h2, h3, p { margin: 0; }
-      html { scroll-behavior: smooth; }
-    </style>
+    /* FONTS */
+    --font-family-sans: system-ui, sans-serif;
+    --font-family-heading: 'Montserrat', sans-serif;
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-base: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-small: 0.875rem;
+
+    /* SPACING */
+    --spacing-xs: 0.5rem; 
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-l-xl: 2rem;
+    --spacing-xl: 4rem;
+    --spacing-xl-plus: 3rem;
+    --spacing-xxl: 6rem;
+
+    /* BORDERS & SHADOWS */
+    --border-radius-md: 8px;
+    --shadow-inner: inset 0 0 15px 5px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-focus-ring: 0 0 0 3px rgba(128, 48, 204, 0.25);
+
+    /* LAYOUT */
+    --container-width-wide: 1200px;
+    --container-width-narrow: 800px;
+    --container-width-extra-narrow: 600px;
+
+    /* EFFECTS */
+    --transition-default: background-color 0.3s ease;
+    --transition-card: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+
+
+  /* ====================================================== */
+  /* |= 2. GLOBAL STYLES & UTILITIES =| */
+  /* ====================================================== */
+  body {
+    font-family: var(--font-family-sans);
+    line-height: 1.5;
+    margin: 0;
+    padding-top: 80px;
+    
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+
+  /*DOT GRID BG*/ 
+    background-image: radial-gradient(circle, var(--color-dot-grid) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  h1, h2, h3, p { 
+    margin: 0;
+  }
+
+  h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h2);
+    color: var(--color-text-dim);
+  }
+
+  html { 
+    scroll-behavior: smooth;
+  }
+  
+  .container {
+    max-width: var(--container-width-narrow);
+    margin: 0 auto;
+  }
+</style>
+
+
+
+
+
+<!-- NO NEED TO TOUCH ANYTHING HERE-->
   </head>
   <body>
     <Header />
     <main>
      <slot/> <!-- The <slot /> is a placeholder where your page content will be injected. -->
     </main>
-    <PageFoot /> <!-- <-- 2. USE THE NEW FOOT  COMPONENT -->
+    <PageFoot /> 
   </body>
 </html>

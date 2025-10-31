@@ -10,18 +10,21 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .page-footer {
-    background-color: #8030cc; /* A very light grey */
-    border-top: 1px solid #000;
+    background-color: var(--color-accent);
+    border-top: 1px solid var(--color-border);
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: var(--spacing-lg) var(--spacing-md);
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+
+  /*
+   * We can DELETE the .container rule from this component.
+   * The HTML <div class="container"> automatically inherits
+   * the correct styling from our global theme file.
+   */
+
   p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #fff;
+    /* The global "p { margin: 0; }" already handles the margin. */
+    font-size: var(--font-size-small);
+    color: var(--color-text-light);
   }
 </style>

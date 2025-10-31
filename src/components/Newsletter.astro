@@ -10,7 +10,7 @@ const SUBSTACK_URL = 'https://bossystem.substack.com/feed';
 try {
     // Fetch and parse the feed during the build.
     const feed = await parser.parseURL(SUBSTACK_URL);
-    // We'll just take the 3 most recent posts. Change slice(0, 3) to show more or less.
+    // We'll just take the 3 most recent posts. Change slice(0, 2) to show more or less.
     posts = feed.items.slice(0, 2); 
 } catch (error) {
     // If the feed fails, we log the error and show nothing, preventing the site from crashing.
@@ -48,60 +48,62 @@ try {
 
 <style>
   .newsletter {
-    padding: 4rem 1rem;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+  .container-wide {
+    text-align: center; /* We only need to add the specific alignment here */
   }
   h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #d0d0d0;
-    font-family: 'Montserrat', sans-serif;
+    /* The font, size, and color are inherited from the global h2 style! */
+    margin-bottom: var(--spacing-lg); /* 2rem is not a standard unit, using 1.5rem for consistency */
   }
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
     text-align: left;
   }
   .card {
-    background-color: #333;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background-color: var(--color-surface-dark);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition-card);
   }
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-card-hover);
   }
   .card-content {
-    padding: 1.5rem;
+    padding: var(--spacing-lg);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
   .card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: #fff;
+    /* The font, size, and color are inherited from the global h3 style! */
+    margin-bottom: var(--spacing-sm);
   }
   .card p {
-    color: #cecece;
+    color: var(--color-text-dim); /* Using a standard text color */
     line-height: 1.6;
-    flex-grow: 1; /* Pushes the 'Read More' link to the bottom */
-    margin-bottom: 1rem;
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+  }
+  .card-date {
+      font-size: var(--font-size-small);
+      color: var(--color-text-dim);
+      opacity: 0.8; /* Makes the date slightly less prominent */
+      margin-top: -0.25rem;
+      margin-bottom: var(--spacing-md);
   }
   .read-more {
     font-weight: bold;
-    color: #8030cc;
-    margin-top: auto; /* Aligns to the bottom */
+    color: var(--color-accent);
+    margin-top: auto;
   }
 </style>
