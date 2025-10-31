@@ -1,63 +1,44 @@
 ---
-// src/pages/calculator.astro
-import Layout from '@/layouts/Layout.astro';
+// src/components/WIP.astro
+import { Image } from 'astro:assets';
+import wipGif from '@/assets/wip.gif'; // We import the GIF from our assets folder
 ---
-<Layout title="BOSS - Simple Calculator">
-  <div class="calculator-page">
-    <h1>Simple Calculator</h1>
-    <p>Enter three values below to compute a result.</p>
-    
-    <div class="calculator-form">
-      <div class="form-group">
-        <label for="valueA">Value A</label>
-        <input type="number" id="valueA" placeholder="Enter first value" />
-      </div>
-      <div class="form-group">
-        <label for="valueB">Value B</label>
-        <input type="number" id="valueB" placeholder="Enter second value" />
-      </div>
-      <div class="form-group">
-        <label for="valueC">Value C</label>
-        <input type="number" id="valueC" placeholder="Enter third value" />
-      </div>
-      <button id="calculateButton" class="submit-button">Calculate</button>
-    </div>
-
-    <!-- The result will appear here -->
-    <div class="result-box" id="resultBox" style="display: none;">
-      <h2>Computed Result:</h2>
-      <p id="resultValue">0</p>
+<section class="wip-section">
+  <div class="container">
+    <h2>Keep an eye out for this space!</h2>
+    <div class="wip-box">
+      <Image src={wipGif} alt="Work in Progress" class="wip-gif" width="480" />
     </div>
   </div>
-</Layout>
+</section>
 
 <style>
-  /* All the styling is identical to the contact page for consistency */
-  .calculator-page { max-width: 800px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
-  h1 { font-size: 3rem; font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; color: #f0f0f0; }
-  .calculator-page > p { font-size: 1.1rem; color: #a0a0a0; margin-bottom: 3rem; }
-  .calculator-form { max-width: 400px; margin: 0 auto 3rem auto; display: flex; flex-direction: column; gap: 1.5rem; text-align: left; }
-  .form-group { display: flex; flex-direction: column; }
-  label { font-weight: bold; margin-bottom: 0.5rem; color: #d0d0d0; }
-  input { padding: 0.75rem; border: 1px solid #555; border-radius: 8px; font-size: 1rem; background-color: #3d3d3d; color: #f0f0f0; }
-  .submit-button { background-color: #007bff; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; border: none; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.3s ease; }
-  .submit-button:hover { background-color: #0056b3; }
-  
-  .result-box {
-    margin-top: 3rem;
-    padding: 2rem;
-    background-color: #3d3d3d;
-    border: 1px solid #555;
-    border-radius: 8px;
+  .wip-section {
+    padding: 4rem 1rem;
+    /*background-color: #1a1a1a; /* A cool, light blue-grey background */
+    text-align: center;
   }
-  .result-box h2 {
-    color: #a0a0a0;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
   }
-  .result-box p {
-    color: #f0f0f0;
+  h2 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #d0d0d0;
+  }
+
+  .wip-box {
+    background-color: #333;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: inline-block; /* Makes the box fit the content */
+  }
+  .wip-gif {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounds the corners of the GIF itself */
   }
 </style>

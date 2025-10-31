@@ -1,0 +1,88 @@
+---
+// src/components/Note.astro
+---
+<section class="note-section">
+  <div class="note-card">
+    <h2>The 3 Metrics</h2>
+    <ul class="definitions-list">
+    <li>
+        <strong>Sales:</strong> Money coming in.
+    </li>
+    <li>
+        <strong>Cost of Inventory:</strong> Money stuck in the pipeline.
+    </li>
+    <li>
+        <strong>Operating Expense:</strong> Money going out to keep the pipeline working.
+    </li>
+    </ul>
+
+   
+<style>
+  .note-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: transparent;
+  }
+  .note-card {
+    max-width: var(--container-width-narrow);
+    margin: auto;
+    background-color: var(--color-surface-dark);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-l-xl);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: var(--transition-card);
+  }
+
+
+    .note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  h2 {
+    margin-bottom: var(--spacing-l-xl);
+  }
+  .definitions-list {
+    list-style: none;
+    padding: 1;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+  .definitions-list li {
+    line-height: 1.3;
+  }
+  .definitions-list strong {
+    display: inline;
+    font-family: var(--font-family-heading);
+    color: var(--color-text-light);
+    font-size: var(--font-size-large);
+    margin-right: var(--spacing-xs); /* NEW: Add a little space after the colon */
+  }
+  .definitions-list span {
+    color: var(--color-text-dim);
+  }
+
+ .definitions-list li::before {
+    content: '•';
+    color: var(--color-accent);
+    font-size: 1.5em;
+    line-height: 0; /* Helps with vertical alignment */
+  }
+
+  .definitions-list strong {
+    font-family: var(--font-family-heading);
+    color: var(--color-text-light);
+    font-size: var(--font-size-large);
+  }
+  .definitions-list span {
+    color: var(--color-text-dim);
+  }
+  
+  /* --- CTA Placeholder is unchanged --- */
+  .cta-placeholder { /* ... */ }
+  .cta-link { /* ... */ }
+</style>
